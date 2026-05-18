@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1269,6 +1270,7 @@ function eraseAt(x, y) {
   const t = activeTab();
   const before = t.objects.length;
   t.objects = t.objects.filter(o => {
+    if (o.type === 'image') return true;
     const b = getBounds(o);
     const pad = state.strokeWidth/t.zoom;
     return !(x >= b.x-pad && x <= b.x+b.w+pad && y >= b.y-pad && y <= b.y+b.h+pad);
